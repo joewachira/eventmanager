@@ -20,3 +20,10 @@ https://joewachira.github.io/eventmanager/
 
  nosetests tests
  
+## Flask Application
+
+The file run.py is used to run the flask application. To run it use
+
+    python run.py  
+    
+it will run a local webserver on http://127.0.0.1:5000 and user will be provided with a home page
