@@ -2,35 +2,119 @@
 <html>
 <head lang="en">
     <meta charset="UTF-8">
-          <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
-
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
-
-
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <link rel="stylesheet" type="text/css" href="css/style_admin.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <!--<link rel="stylesheet" type="text/css" href="css/style_admin.css">-->
 
     <title>User Dashboard</title>
+   <nav class="navbar navbar-inverse">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="../../index.html"> Event Manager</a>
+    <div>
+        <ul class="nav navbar-nav">
+            <li class="active"><a href="../../index.html"> Home</a></li>
+            <li class="active"><a href="#"> Events</a></li>
+            </ul>
+        <ul class="nav navbar-nav navbar-right">
+            <li><a href="signup.html"><span class="glyphicon glyphicon-user"></span> Sign Up </a></li>
+            <li><a href="login.html"><span class="glyphicon glyphicon-log-in"></span> Login </a></li>
+            </ul>
+        </div>
+    </div>
 
+</nav>
 
 
 </head>
 <body>
+<br><br>
+<div class="container" xmlns="http://www.w3.org/1999/html">
+    <div class="dashboard">
+        <div class="panel panel-success">
 
-<div id="header"><br>
-    <div style="text-align: center;"> <h3> Welcome User</h3>
+            <div class="panel-heading">
+                <span class="fa fa-dashboard"></span> Dashboard
+            </div>
+
+            <div class="panel-body">
+                <div class="row">
+                    <div class="col-lg-8 col-sm-offset-2">
+
+                        <div>
+
+                            <!-- Nav tabs -->
+                            <ul class="nav nav-tabs" role="tablist">
+                                <li role="presentation" class="active"><a href="#dashboard" aria-controls="dashboard" role="tab" data-toggle="tab"><span><i class="fa fa-dashboard"></i> </span>Dashboard</a></li>
+                            </ul>
+
+                            <!-- Tab panes -->
+                            <div class="tab-content">
+                                <div role="tabpanel" class="tab-pane fade in active" id="dashboard">
+
+                                    <div class="">
+                                        <table class="table table-bordered">
+                                            <caption>My Events <span class="badge"></span></caption>
+                                            <thead>
+                                            <tr>
+                                                <th>Event Category</th>
+                                                <th>Event Name</th>
+                                                <th>Date Created</th>
+                                                <th></th>
+                                            </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td>#</td>
+                                                    <td>#</td>
+                                                    <td>#</td>
+                                                    <td>
+                                                        <div class="ui compact selection dropdown" id="action">
+                                                            <i class="dropdown icon"></i>
+                                                            <div class="text">Action</div>
+                                                            <div class="menu">
+                                                                <a class="item" href="#">
+                                                                    <i class="fa fa-eye text-info"></i> <small>view</small>
+                                                                </a>
+                                                                <a class="item" href="#">
+                                                                    <i class="fa fa-pencil text-info"></i> <small>edit</small>
+                                                                </a>
+                                                                <a class="item" href="#">
+                                                                    <i class="fa fa-trash text-danger"></i> <small>delete</small>
+                                                                </a>
+                                                            </div>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                        <div class="well">
+                                            <p class="text-center">No events added yet. click the link below to add</p>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-4 col-sm-offset-4">
+
+                                        <div class="thumbnail text-center add-new-list">
+                                            <a class="ui green basic button" href="#"><span><i class="fa fa-plus"></i> </span> Create Event</a>
+                                        </div>
+
+                                    </div>
+                                    </div>
+
+                                </div>
+                            </div>
+
+                            </div>
+                    </div>
+
+                </div>
+            </div>
+
         </div>
-
-    <br><br><br>
-
-<div id="sidemenu">
-    <ul>
-        <li><a href="" target="_blank"> Add Event </a></li>
-        <li><a href="" target="_blank"> Modify Event </a></li>
-        <li><a href="" target="_blank"> Delete Event </a></li>
-        <li><a href="" target="_blank"> Search for an Event </a></li>
-        </ul>
     </div>
+</div>
 
 
 </body>
