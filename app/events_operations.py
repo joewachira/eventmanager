@@ -4,7 +4,6 @@ from app.randomID import get_random_id
 from app.events_declare import Items
 
 
-
 class Events(object):
 	def __init__(self):
 
@@ -14,7 +13,7 @@ class Events(object):
 
 	def add_event(self, event_name):
 
-		if event_name is None or len(event_name)< 1:
+		if event_name is None or len(event_name) < 1:
 			return "event must have a name"
 
 		if not isinstance(event_name, str):
@@ -29,6 +28,6 @@ class Events(object):
 
 		return new_item.id
 
-	def update(self, new_event):
+	def update(self, new_event, new_category=None):
 
 		if new_category
