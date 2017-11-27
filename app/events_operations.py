@@ -5,9 +5,7 @@ from flask import session
 class EventsManager(object):
 	events = {}
 
-	def __init__(self):
-		self.name = self.name
-
+	# def __init__(self):
 	def add_event(self, key, value):
 		if isinstance(key, str):
 			self.events.setdefault(key, [] .append(value))
@@ -35,3 +33,7 @@ class EventsManager(object):
 
 		if not isinstance(name, str):
 			return 'Event must be a string'
+
+	@staticmethod
+	def delete_event(name):
+		pass
