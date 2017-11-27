@@ -6,6 +6,7 @@ from . import auth
 from .forms import LoginForm, RegistrationForm
 # routes /endpoints
 
+
 @auth.route("/register", methods=['GET', 'POST'])
 def register():
 	# Handle requests to the /register route and add new user
