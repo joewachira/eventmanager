@@ -27,6 +27,18 @@ https://joewachira.github.io/eventmanager/
 
  `nosetests tests`
  
+<<<<<<< HEAD
+
+##### RESTful API
+The file run.py is used to run the flask application. To run it use
+
+Execute
+
+```bash
+python run.py
+```
+
+Visit `localhost:5000/api/v0.1/events` to view the JSON output.
 
 ##### RESTful API
 The file run.py is used to run the flask application. To run it use
