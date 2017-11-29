@@ -1,6 +1,6 @@
 __author__ = 'joe'
 
-from app.randomID import get_random_id
+from app.randomId import get_random_id
 
 
 class Items(object):
