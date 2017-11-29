@@ -11,6 +11,13 @@ This is a platform for event organizers to create and manage different types of 
 > 3. Create a virtual enviroment `virtualenv --python=python3 env` then activate it `source env/bin/activate`
 > 4. Install requirements `pip3 install -r requirements.txt`
 
+## Functionalities
+> 1. Users can create account and log in
+> 2. Users can create, view, update and delete an event
+> 3. Users can RSVP to an event - Users can respond to events
+> 4. Users can view who will be attending their event
+> 5. Users can search for events based on event location or event category
+
 ## Github pages
 https://joewachira.github.io/eventmanager/
 
@@ -18,12 +25,21 @@ https://joewachira.github.io/eventmanager/
 
  To run unittests locally, install nose then point it to the tests folder located at tests folder of the project
 
- nosetests tests
+ `nosetests tests`
  
-## Flask Application
+
+##### RESTful API
+The file run.py is used to run the flask application. To run it use
+
+Execute
+
+```bash
+python run.py
+```
+
+Visit `localhost:5000/api/v0.1/events` to view the JSON output.
 
 The file run.py is used to run the flask application. To run it use
 
-    python run.py  
-    
-it will run a local webserver on http://127.0.0.1:5000 and user will be provided with a home page
+##### License
+MIT License
