@@ -5,7 +5,6 @@ from . import home
 
 from app.randomId import get_random_id
 
-""" HANDLE EVENTS ACTIVITIES """
 events_info = [
     {
         'category': 'dance',
@@ -30,7 +29,7 @@ events_info = [
 def add_event():
     if not request.json or 'category' not in request.json:
         abort(403)
-    if not request.json or 'name' not in request.json:  #cost must be included
+    if not request.json or 'name' not in request.json:
         abort(403)
     if not request.json or 'description' not in request.json:
         abort(403)
