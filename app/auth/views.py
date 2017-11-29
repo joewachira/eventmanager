@@ -1,61 +1,52 @@
-__author__ = 'joe'
-from .user_operations import UserManager
-from .user_class import Userr
-from flask import flash, redirect, render_template, url_for, session
+from flask import jsonify, abort, request, session
+from flask import make_response
+from . import user_class
+
 from . import auth
-from .forms import LoginForm, RegistrationForm
-# routes /endpoints
 
 
-@auth.route("/register", methods=['GET', 'POST'])
+# api endpoint to register user
+@auth.route('/api/v1/auth/register', methods=['POST'])
 def register():
-	# Handle requests to the /register route and add new user
+    if not request.json or 'email' not in request.json: 	# email and password must be included
+        abort(403)
+    if not request.json or 'password' not in request.json:	 # password must be included
+        abort(403)
+    user = {
+        'id': len(user_class.User1.users)+1,
+        'email': request.json['email'],
+        'username': request.json['username'],
+        'password': request.json['password']
+    }
+    user_class.User1.users.append(user)
+    return jsonify({'user': user}), 201
 
-	form = RegistrationForm()
-	if form.validate_on_submit():
-		# import pdb; pdb.set_trace()
-		user = Userr(username=form.username.data,
-					 email=form.email.data,
-					 password=form.password.data, )
-
-		# add new user to list
-		is_register_ok = UserManager().register(user.email, user)
-		if is_register_ok:
-			return redirect(url_for("auth.register"))
-
-		# load the registration template if an error occurred
-
-		return render_template('signup.html', form=form, title='Registration')
+# endpoint for user to login
 
 
-@auth.route('/login', methods=['GET', 'POST'])
-def login():
-	# we now log a user in through the login form
-
-	form = LoginForm
-	if form.validate_on_submit():
-		is_correct_user = UserManager().login(form.email.data, form.password.data)
-		if is_correct_user:
-			# we redirect
-
-			session['username'] = form.email.data
-			session['logged_in'] = True
-			return redirect(url_for('home.dashboard'))
-		flash("Sorry, Password or Email entered is incorrect")
-		# redirect to the login page
-		return redirect(url_for('auth.login'))
-
-	# We load login template
-
-	return render_template('login.html', form=form, title='Login')
+@auth.route('/api/v1/auth/login', methods=['POST'])
+def login():    
+    if not request.json or 'email' not in request.json: 	# when no email provided
+        abort(403)
+    
+    email = request.json['email']
+    password = request.json['password']
+    
+    user = [user for user in user_class.User1.users if user['email'] == email and user['password'] == password]
+    if user:
+        session.email = user[0]['email']
+        session.userid = user[0]['id']
+        
+        return jsonify({'user': user}), 200
+    abort(404)
 
 
-@auth.route('logout')
-def logout():
-	# method for logging out user through the logout link
+# user can edit password
 
-	session['logged_in'] = None
-	flash("You have successfully been logged out.")
-
-	# we now redirect to the login page
-	return redirect(url_for('auth.login'))
+@auth.route('/api/v1/auth/reset-password/<string:email>', methods=['PUT'])
+def password_reset(email):
+    user = [user for user in user_class.User1.users if user['email'] == email]
+    if not user:
+        abort(404)
+    user[0]['password'] = request.json.get('password', user[0]['password'])
+    return jsonify({'user': user}), 200

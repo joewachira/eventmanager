@@ -18,12 +18,21 @@ https://joewachira.github.io/eventmanager/
 
  To run unittests locally, install nose then point it to the tests folder located at tests folder of the project
 
- nosetests tests
+ `nosetests tests`
  
-## Flask Application
+
+##### RESTful API
+The file run.py is used to run the flask application. To run it use
+
+Execute
+
+```bash
+python run.py
+```
+
+Visit `localhost:5000/api/v0.1/events` to view the JSON output.
 
 The file run.py is used to run the flask application. To run it use
 
-    python run.py  
-    
-it will run a local webserver on http://127.0.0.1:5000 and user will be provided with a home page
+##### License
+MIT License
